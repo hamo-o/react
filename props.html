@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<body>
+    <div id="root"></div>
+</body>
+<script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<script type="text/babel">    
+    function Btn({mytext, big}){
+        return <button style={{
+            background: "tomato",
+            color: "white",
+            padding: "10px 20px",
+            border: 0,
+            borderRadius: 10,
+            fontSize: big ? 20 : 14
+        }}>{mytext}</button>
+    }
+    function App() {
+        return (
+            <div>
+                <Btn mytext="Save Changes" big={true}/>
+                <Btn mytext="Continue" big={false}/>
+            </div>
+        );
+    }
+
+    const myroot = document.getElementById("root");
+    ReactDOM.render(<App />, myroot);
+</script>
+</html>
