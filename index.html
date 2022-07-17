@@ -8,20 +8,32 @@
 <script type="text/babel">
     const myroot = document.getElementById("root");
 
-    const Title = (
+    const Title = () => (
     <h3 id="title" 
     onMouseEnter = {() => console.log("mouse enter")}>
     Hello I'm a title
     </h3>
     );
 
-    const Button = <button
-    style = {{
-        background: "tomato",
-    }}
-    onClick={() => console.log("I'm clicked")}>
-    Click me
-    </button>
+    function Button() {
+    return (
+            <button
+            style = {{
+                background: "tomato",
+            }}
+            onClick={() => console.log("I'm clicked")}>
+            Click me
+            </button>
+        );
+    } 
+
+    const Container = () => (
+    <div>
+        <Title />
+        <Button />
+    </div>
+    );
+    ReactDOM.render(<Container />, myroot);
 
     /*
     const myspan = React.createElement("h3", {
@@ -30,10 +42,10 @@
 
     const btn = React.createElement("button", {
         onClick: () => console.log("I'm clicked")
-    }, "Click me");*/
+    }, "Click me");
 
     const container = React.createElement("div", null, [Title, Button]);
-    
     ReactDOM.render(container, myroot);
+    */
 </script>
 </html>
