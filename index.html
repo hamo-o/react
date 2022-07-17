@@ -6,7 +6,15 @@
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script>
     const myroot = document.getElementById("root");
-    const myspan = React.createElement("span", {id: "sexy-span", style: {color: "red"}},"Hello, I'm a span");
-    ReactDOM.render(myspan, myroot);
+
+    const myspan = React.createElement("h3", {
+        onMouseEnter: () => console.log("mouse enter")
+    }, "Hello, I'm a span");
+
+    const btn = React.createElement("button", {
+        onClick: () => console.log("I'm clicked")
+    }, "Click me");
+    const container = React.createElement("div", null, [myspan, btn]);
+    ReactDOM.render(container, myroot);
 </script>
 </html>
