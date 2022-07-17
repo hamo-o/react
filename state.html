@@ -7,23 +7,16 @@
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 <script type="text/babel">
     const myroot = document.getElementById("root");
-    let counter = 0;
-
-    function countUp() {
-        counter+= 1;
-        render();
-    }
-
-    function render() {
-        ReactDOM.render(<Container />, myroot);
-    }
-
-    const Container = () => (
-    <div>
-        <h3>Total clicks: {counter}</h3>
-        <button onClick={countUp}>Click me</button>
-    </div>
-    );
-    render();
+    
+    function App() {
+        const [counter, modifier] = React.useState(0);
+        return (
+            <div>
+                <h3>Total clicks: 0</h3>
+                <button>Click me</button>
+            </div>
+        );
+}
+    ReactDOM.render(<App />, myroot);
 </script>
 </html>
