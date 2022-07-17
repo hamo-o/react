@@ -5,22 +5,25 @@
 <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-<script type="text/babel">
-    const myroot = document.getElementById("root");
-    
+<script type="text/babel">    
     function App() {
-        const [counter, setCounter] = React.useState(0);
-        const myClick = () => {
-            // setCounter(counter + 1);
-            setCounter((current) => current + 1)
+        const [minutes, setMinutes] = React.useState()
+        const myChange = (event) => {
+            setMinutes(event.target.value);
         }
         return (
             <div>
-                <h3>Total clicks: {counter}</h3>
-                <button onClick={myClick}>Click me</button>
-            </div>
+                <h1>Super Converter</h1>
+                <label htmlFor="minutes">Minutes</label>
+                <input id="minutes" value = {minutes} placeholder="Minutes" type="number" onChange = {myChange}/>
+                <h4>You want to convert {minutes}</h4>
+                <label htmlFor="hours">Hours</label>
+                <input id="hours" placeholder="Hours" type="number" />
+            </div> 
         );
     }
+
+    const myroot = document.getElementById("root");
     ReactDOM.render(<App />, myroot);
 </script>
 </html>
